@@ -47,7 +47,7 @@ IP2="1.1.1.1" # Exemple: Cloudflare DNS
     <pre><code>sudo crontab -e</code></pre>
   </li>
   <li>Ajoutez une ligne pour exécuter le script toutes les 3 minutes (ou selon vos préférences) :
-    <pre><code>*/3 * * * * /chemin/vers/server-reboot.sh &gt;&gt; /chemin/vers/reboot.log 2&gt;&amp;1</code></pre>
+    <pre><code>*/3 * * * * /chemin/vers/server-reboot.sh </code></pre>
     Remplacez <code>/chemin/vers/</code> par le chemin absolu de votre script et du fichier de log.
   </li>
 </ol>
