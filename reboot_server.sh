@@ -56,14 +56,14 @@ if [ $status1 -ne 0 ] && [ $status2 -ne 0 ]; then
         can_restart=$?
         if [ $can_restart -eq 0 ]; then
             echo "Preparation au redemarrage du serveur..."
-            touch "$FLAG_FILE" 2>> /var/log/erreur_rebootserver.log # Creation ou mise a jour du fichier indicateur
-			echo "Reboot execute par le script automatique le $(date '+%Y-%m-%d %H:%M:%S')" >> "$LOG_FILE"
-			# Redemarrage du serveur
+            touch "$FLAG_FILE" # Creation ou mise a jour du fichier indicateur
+	    echo "Reboot execute par le script automatique le $(date '+%Y-%m-%d %H:%M:%S')" >> "$LOG_FILE"
+     	# Redemarrage du serveur
             /sbin/shutdown -r now "Redemarrage automatique suite a l'echec de la connectivite."
         fi
     else
-		echo "La connectivite est retablie lors de la seconde tentative."
-		rm -f "$FLAG_FILE" # Nettoyage du fichier si la connectivite est retablie et le redemarrage ancien
+	echo "La connectivite est retablie lors de la seconde tentative."
+	rm -f "$FLAG_FILE" # Nettoyage du fichier si la connectivite est retablie et le redemarrage ancien
     fi
 else
     echo "La connectivite est bonne."
